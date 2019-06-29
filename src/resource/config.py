@@ -1,11 +1,12 @@
 from flask import request
 from flask_restplus import Resource
 
-from api.restplus import luxCoreServerApi
+from src.server.instance import server
 
-ns = luxCoreServerApi.namespace('session/config', description='Operations related to render settings')
+app, api = server.app, server.api
+ns = api.namespace('session/', description='Operations related to render settings')
 
-@ns.route('/')
+@ns.route('config')
 class RenderSettings(Resource):
 
 	def __init__(self, api=None, *args, **kwargs):
