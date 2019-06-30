@@ -20,7 +20,7 @@ class Server(object):
 					  description='API for defining LuxCore scenes, render settings and controlling the rendering process',
 					  doc = environment_config["swagger-url"])
 
-		self.app.config['SECRET_KEY'] = 'super-secret'
+		self.app.config['SECRET_KEY'] = uuid.uuid4().__str__()
 
 	def run(self):
 		self.app.run(

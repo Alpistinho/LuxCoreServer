@@ -3,14 +3,10 @@ from flask_restplus import Resource, fields, marshal_with
 from flask_jwt_extended import JWTManager, create_access_token
 
 from src.server.instance import server
+from src.authentication.client_authentication_shared import *
 
 app, api = server.app, server.api
 ns = api.namespace('client/', description='Operations related to client authentication')
-
-jwt = JWTManager(app)
-
-_connected_clients = {}
-
 
 client_registration_fields = api.model('Client registration', {'username': fields.String})
 
