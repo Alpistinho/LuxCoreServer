@@ -26,6 +26,6 @@ class SceneDefinition(Resource):
 		Defines new scene definition for this session.
 		"""
 		client_state_machine = get_client_state_machine_by_identity(get_jwt_identity())
-		client_state_machine.update_configuration(request)
+		client_state_machine.update_scene(request)
 
 		return None, 201

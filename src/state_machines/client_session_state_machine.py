@@ -33,7 +33,7 @@ class Client_session_state_machine(object):
         self.current_configuration = config.json
         return
 
-    def update_scene(self):
-        self.current_configuration = config.json
+    def update_scene(self, scene):
+        self.current_configuration = scene.json
         return
     
