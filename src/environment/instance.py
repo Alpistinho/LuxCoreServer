@@ -6,7 +6,7 @@ env = os.environ.get("PYTHON_ENV", "development")
 # Configuration for each environment
 # Alternatively use "python-dotenv"
 all_environments = {
-    "development": { "port": 5000, "debug": True, "swagger-url": "/api/swagger" },
+    "development": { "port": 5000, "debug": True, "swagger-url": "/" },
     "production": { "port": 8080, "debug": False, "swagger-url": None  }
 }
 

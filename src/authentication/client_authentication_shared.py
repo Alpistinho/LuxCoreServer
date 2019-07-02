@@ -5,4 +5,4 @@ app, api = server.app, server.api
 
 jwt = JWTManager(app)
 
-_connected_clients = {}
+connected_clients = {}
