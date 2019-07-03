@@ -1,5 +1,7 @@
 from transitions import Machine
 
+from .lib import pyluxcore
+
 states = ['Unitialized',    # Needs to have configuration/scene provided
         'Configured',       # Configuration/scene was provided
         'Rendering',        # Currently rendering
@@ -28,12 +30,18 @@ class Client_session_state_machine(object):
         
         return super().__init__(*args, **kwargs)
     
+    def check_if_configured(self):
+        if (self.current_configuration is not None and self.current_scene is not None):
+            self.machine.is_configured()
 
     def update_configuration(self, config):
         self.current_configuration = config.json
+        self.check_if_configured()
         return
 
     def update_scene(self, scene):
         self.current_configuration = scene.json
+        self.check_if_configured()
         return
     
+client_session_machine = Client_session_state_machine()

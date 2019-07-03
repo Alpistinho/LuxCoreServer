@@ -3,7 +3,7 @@ import uuid
 from flask import Flask
 from flask_restplus import Api, Resource, fields
 
-from src.environment.instance import environment_config
+from ..environment.instance import environment_config
 
 class Client(object):
     def __init__(self, username, password):
