@@ -2,10 +2,13 @@ from flask import request
 from flask_restplus import Resource, fields
 
 from ..server.instance import server
-from ..state_machines.client_session_state_machine import client_session_machine
+from ..state_machines.worker_machine import worker_machine
 
 app, api = server.app, server.api
 ns = api.namespace('scene/', description='Operations related to scene definition')
+
+
+scene_post_fields = api.model('Defining scene', {'placeholder': fields.String})
 
 @ns.route('/')
 class SceneDefinition(Resource):
@@ -14,12 +17,13 @@ class SceneDefinition(Resource):
 		"""
 		Returns currently defined scene definition for this session.
 		"""
-		return client_session_machine.current_configuration
+		return worker_machine.current_scene
 
+	@api.expect(scene_post_fields, validate = True)
 	def post(self):
 		"""
 		Defines new scene definition for this session.
 		"""
-		client_session_machine.update_scene(request)
+		worker_machine.update_scene(request)
 
 		return None, 201

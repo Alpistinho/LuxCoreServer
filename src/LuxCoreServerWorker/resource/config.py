@@ -2,7 +2,7 @@ from flask import request
 from flask_restplus import Resource, fields
 
 from ..server.instance import server
-from ..state_machines.client_session_state_machine import client_session_machine
+from ..state_machines.worker_machine import worker_machine
 
 app, api = server.app, server.api
 ns = api.namespace('config/', description='Operations related to render settings')
@@ -19,13 +19,13 @@ class RenderSettings(Resource):
 		"""
 		Returns currently defined render configuration for this session
 		"""
-		return client_session_machine.current_configuration
+		return worker_machine.current_configuration
 
 	@api.expect(config_post_fields, validate = True)
 	def post(self):
 		"""
 		Defines new render configuration for this session
 		"""
-		client_session_machine.update_configuration(request)
+		worker_machine.update_configuration(request)
 
 		return None, 201
