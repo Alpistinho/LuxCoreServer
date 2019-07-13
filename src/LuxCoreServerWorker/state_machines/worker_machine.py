@@ -40,24 +40,35 @@ class Worker_machine(object):
 		return
 	
 	def _set_props(self):
-		print('Setting props')
-		for key, value in self.current_configuration:
-			print(key, value)
+		for key in self.current_configuration:
+			try:
+				print('key: ', key, self.current_configuration[key], type(self.current_configuration[key]))
+				self.props.Set(pyluxcore.Property(key, [self.current_configuration[key]]))
+			except RuntimeError as e:
+				print('Error: ', e, key, self.current_configuration[key])
+
 		return
 	
 	def _set_scene(self):
+
+		for key in self.current_scene:
+			try:
+				self.scene.Parse(pyluxcore.Properties().
+				Set(pyluxcore.Property(key, [self.current_scene[key]])))
+			except RuntimeError as e:
+				print('Error: ', e, key, self.current_scene[key])
+
 		return
 
 	def start_rendering(self):
 
-		self._set_props()
-		self._set_scene()
 		# self.config = pyluxcore.RenderConfig(self.props, self.scene)
 
   		# # Create the rendering session
 		# self._session = pyluxcore.RenderSession(self.config)
 		# # Start the rendering
 		# self._session.Start()
+		return
 	
 	def check_if_configured(self):
 		if (self.current_configuration is not None and self.current_scene is not None):
@@ -66,12 +77,15 @@ class Worker_machine(object):
 		return self.is_configured()
 
 	def update_configuration(self, config):
+		print('config: ', config.data)
 		self.current_configuration = config.json
+		self._set_props()
 		self.check_if_configured()
 		return
 
 	def update_scene(self, scene):
 		self.current_scene = scene.json
+		self._set_scene()
 		self.check_if_configured()
 		return
 	

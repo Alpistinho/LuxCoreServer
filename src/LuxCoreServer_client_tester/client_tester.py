@@ -6,6 +6,7 @@ scn = {}
 with open('simple/simple.cfg', 'r') as cfg_file:
 	for line in cfg_file:
 		line = line.strip()
+		if "=" not in line: continue
 		if line.startswith("#"): continue 
 
 		k, v = line.split("=", 1)
@@ -14,6 +15,7 @@ with open('simple/simple.cfg', 'r') as cfg_file:
 with open('simple/simple.scn', 'r') as cfg_file:
 	for line in cfg_file:
 		line = line.strip()
+		if "=" not in line: continue
 		if line.startswith("#"): continue 
 
 		k, v = line.split("=", 1)
@@ -22,3 +24,4 @@ with open('simple/simple.scn', 'r') as cfg_file:
 
 requests.post('http://localhost:5000/config/',json=cfg)
 requests.post('http://localhost:5000/scene/',json=scn)
+requests.get('http://localhost:5000/rendering/start')

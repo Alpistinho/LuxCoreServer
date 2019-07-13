@@ -1,1 +1,1 @@
-From the project root: python3 -m src.server.instance
+From the project root: python3 -m src.LuxCoreServerWorker.main
