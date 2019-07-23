@@ -2,3 +2,4 @@ Flask==1.0.2
 flask-restplus==0.12.1
 transitions==0.6.9
 flask-jwt-extended==3.19.0
+numpy==1.16.4

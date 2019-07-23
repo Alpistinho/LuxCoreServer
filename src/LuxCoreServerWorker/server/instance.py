@@ -24,6 +24,7 @@ class Server(object):
 
 	def run(self):
 		self.app.run(
+				host = environment_config["host"],
 				debug = environment_config["debug"], 
 				port = environment_config["port"]
 			)
