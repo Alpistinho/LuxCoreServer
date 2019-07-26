@@ -40,9 +40,10 @@ class Worker_machine(object):
 		return
 	
 	def _set_props(self):
+		print(type(self.current_configuration))
 		for key in self.current_configuration:
 			try:
-				print('key: ', key, self.current_configuration[key], type(self.current_configuration[key]))
+				#print('key: ', key, self.current_configuration[key], type(self.current_configuration[key]))
 				self.props.Set(pyluxcore.Property(key, [self.current_configuration[key]]))
 			except RuntimeError as e:
 				print('Error: ', e, key, self.current_configuration[key])
@@ -77,8 +78,7 @@ class Worker_machine(object):
 		return self.is_configured()
 
 	def update_configuration(self, config):
-		print('config: ', config.data)
-		self.current_configuration = config.json
+		self.current_configuration = config
 		self._set_props()
 		self.check_if_configured()
 		return

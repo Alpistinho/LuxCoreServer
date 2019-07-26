@@ -1,6 +1,7 @@
 from pathlib import Path
 import csv
 import json
+from collections import OrderedDict
 
 from flask_restplus import fields
 
@@ -27,6 +28,6 @@ filepath = (basepath / "config_models_schema.json").resolve()
 
 with open(str(filepath),'r') as f:
     schema = f.read()
-schema_json = json.loads(schema)
+schema_json = json.loads(schema, object_pairs_hook=OrderedDict)
 config_post_model = address = api.schema_model('Config files', schema_json)
 

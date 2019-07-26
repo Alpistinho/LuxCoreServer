@@ -18,7 +18,8 @@ class Server(object):
 					  version='0.1', 
 					  title='LuxCoreServer REST API', 
 					  description='API for defining LuxCore scenes, render settings and controlling the rendering process',
-					  doc = environment_config["swagger-url"])
+					  doc = environment_config["swagger-url"],
+					  ordered=True)
 
 		self.app.config['SECRET_KEY'] = uuid.uuid4().__str__()
 
