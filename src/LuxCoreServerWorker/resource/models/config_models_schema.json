@@ -264,6 +264,13 @@
             "items": {
                 "$ref": "#/definitions/imagepipeline_sequence"
             }
+        },
+        "film.radiancegroup":  {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+                "$ref": "#/definitions/imagepipeline_sequence"
+            }
         }
     },
     "definitions": {
@@ -279,7 +286,7 @@
             "type": "array",
             "minItems": 1,
             "items": {
-                "$ref": "#/definitions/imagepipeline_plugin"
+                "$ref": "#/definitions/imagepipeline_radiancescale"
             }
         },
         "imagepipeline_plugin": {
