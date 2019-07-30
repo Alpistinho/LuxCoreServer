@@ -1,0 +1,114 @@
+{
+    "imagepipeline_plugin": {
+        "type": "object",
+        "properties": {
+            "type": {
+                "type": "string",
+                "enum": [
+                    "TONEMAP_LINEAR",
+                    "TONEMAP_REINHARD02",
+                    "TONEMAP_AUTOLINEAR",
+                    "TONEMAP_LUXLINEAR",
+                    "NOP",
+                    "GAMMA_CORRECTION",
+                    "OUTPUT_SWITCHER",
+                    "GAUSSIANFILTER_3x3",
+                    "CAMERA_RESPONSE_FUNC",
+                    "BACKGROUND_IMG",
+                    "BLOOM",
+                    "VIGNETTING",
+                    "COLOR_ABERRATION",
+                    "MIST",
+                    "CONTOUR_LINES"
+                ]
+            },
+            "parameters": {
+                "oneOf": [
+                    {
+                        "$ref": "plugins/tonemap_linear.json#/tonemap_linear"
+                    }
+                ]
+            }
+        }
+    }
+}
+        "$id": "#imagepipeline_plugin",
+"type": "object",
+"properties": {
+    "type": {
+        "type": "string"
+    },
+    "scale": {
+        "type": "string"
+    },
+    "prescale": {
+        "type": "number"
+    },
+    "postscale": {
+        "type": "number"
+    },
+    "burn": {
+        "type": "number"
+    },
+    "sensitivity": {
+        "type": "number"
+    },
+    "exposure": {
+        "type": "number"
+    },
+    "fstop": {
+        "type": "number"
+    },
+    "value": {
+        "type": "number"
+    },
+    "table.size": {
+        "type": "integer"
+    },
+    "channel": {
+        "type": "string"
+    },
+    "index": {
+        "type": "integer"
+    },
+    "weight": {
+        "type": "number"
+    },
+    "name": {
+        "type": "string"
+    },
+    "file": {
+        "type": "string"
+    },
+    "storage": {
+        "type": "string"
+    },
+    "radius": {
+        "type": "number"
+    },
+    "amount": {
+        "type": "number"
+    },
+    "color": {
+        "$ref": "types/color_type.json#/color_type"
+    },
+    "startdistance": {
+        "type": "number"
+    },
+    "enddistance": {
+        "type": "number"
+    },
+    "excludebackgroung": {
+        "type": "boolean"
+    },
+    "range": {
+        "type": "number"
+    },
+    "steps": {
+        "type": "integer"
+    },
+    "zerogridsize": {
+        "type": "integer"
+    }
+}
+}

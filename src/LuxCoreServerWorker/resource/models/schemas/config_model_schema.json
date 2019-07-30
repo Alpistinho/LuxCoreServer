@@ -1,77 +1,99 @@
 {
+    "$id": "#config_schema",
     "type": "object",
     "properties": {
         "resumerendering.filesafe": {
             "type": "boolean"
         },
         "renderengine.seed": {
-            "type": "integer"
+            "type": "integer",
+            "minimum": 1
         },
         "periodicsave.resumerendering.period": {
-            "type": "number"
+            "type": "number",
+            "minimum": 0
         },
         "periodicsave.resumerendering.filename": {
             "type": "string"
         },
         "periodicsave.film.period": {
-            "type": "number"
+            "type": "number",
+            "minimum": 0
         },
         "periodicsave.film.filename": {
             "type": "string"
         },
         "periodicsave.film.outputs.period": {
-            "type": "number"
+            "type": "number",
+            "minimum": 0
         },
         "renderengine.type": {
-            "type": "string"
+            "type": "string",
+            "enum": ["PATHCPU", "TILEPATHCPU", "BIDIRCPU", "RTPATHCPU", "PATHOCL", "RTPATHOCL", "TILEPATHOCL", "BIDIRVMCPU", "LIGHTCPU"]
         },
         "native.threads.count": {
-            "type": "integer"
+            "type": "integer",
+            "minimum": 1
         },
         "path.pathdepth.total": {
-            "type": "integer"
+            "type": "integer",
+            "minimum": 0
         },
         "path.pathdepth.diffuse": {
-            "type": "integer"
+            "type": "integer",
+            "minimum": 0
         },
         "path.pathdepth.glossy": {
-            "type": "integer"
+            "type": "integer",
+            "minimum": 0
         },
         "path.pathdepth.specular": {
-            "type": "integer"
+            "type": "integer",
+            "minimum": 0
         },
         "path.russianroulette.depth": {
-            "type": "integer"
+            "type": "integer",
+            "minimum": 0
         },
         "path.russianroulette.cap": {
-            "type": "number"
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
         },
         "path.clamping.variance.maxvalue": {
-            "type": "number"
+            "type": "number",
+            "minimum": 0
         },
         "path.forceblackbackground.enable": {
             "type": "boolean"
         },
         "tilepath.sampling.aa.size": {
-            "type": "integer"
+            "type": "integer",
+            "minimum": 0
         },
         "tile.size": {
-            "type": "integer"
+            "type": "integer",
+            "minimum": 8
         },
         "tile.multipass.enable": {
             "type": "boolean"
         },
         "tile.multipass.convergencetest.threshold": {
-            "type": "number"
+            "type": "number",
+            "minimum": 0
         },
         "tile.multipass.convergencetest.threshold.reduction": {
-            "type": "number"
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
         },
         "tile.multipass.convergencetest.warmup.count": {
-            "type": "integer"
+            "type": "integer",
+            "minimum": 0
         },
         "path.maxdepth": {
-            "type": "integer"
+            "type": "integer",
+            "minimum": 0
         },
         "rtpathcpu.zoomphase.size": {
             "type": "integer"
@@ -101,19 +123,26 @@
             "type": "boolean"
         },
         "opencl.task.count": {
-            "type": "integer"
+            "oneOf": [
+                {"type": "integer", "minumum": 0},
+                {"type": "string", "enum": ["AUTO"]}
+            ]
         },
         "rtpath.resolutionreduction.preview": {
-            "type": "integer"
+            "type": "integer",
+            "minumum": 0
         },
         "rtpath.resolutionreduction.preview.step": {
-            "type": "integer"
+            "type": "integer",
+            "minumum": 0
         },
         "rtpath.resolutionreduction": {
-            "type": "integer"
+            "type": "integer",
+            "minumum": 0
         },
         "tilepathocl.devices.maxtiles": {
-            "type": "integer"
+            "type": "integer",
+            "minumum": 1
         },
         "filesaver.format": {
             "type": "string"
@@ -128,73 +157,105 @@
             "type": "string"
         },
         "bidirvm.lightpath.count": {
-            "type": "integer"
+            "type": "integer",
+            "minumum": 0
         },
         "bidirvm.startradius.scale": {
-            "type": "number"
+            "type": "number",
+            "minumum": 0
         },
         "bidirvm.alpha": {
-            "type": "number"
+            "type": "number",
+            "minumum": 0
         },
         "light.maxdepth": {
-            "type": "integer"
+            "type": "integer",
+            "minumum": 0
         },
         "light.russianroulette.depth": {
-            "type": "integer"
+            "type": "integer",
+            "minumum": 0
         },
         "light.russianroulette.cap": {
-            "type": "number"
+            "type": "number",
+            "minumum": 0,
+            "maximum": 1
         },
         "sampler.type": {
-            "type": "string"
+            "type": "string",
+            "enum": ["SOBOL", "METROPOLIS", "RANDOM"]
         },
         "sampler.sobol.adaptive.strength": {
-            "type": "number"
+            "type": "number",
+            "minumum": 0,
+            "maximum": 0.95            
         },
         "sampler.metropolis.largesteprate": {
-            "type": "number"
+            "type": "number",
+            "minumum": 0,
+            "maximum": 1
         },
         "sampler.metropolis.maxconsecutivereject": {
-            "type": "integer"
+            "type": "integer",
+            "minumum": 0
         },
         "sampler.metropolis.imagemutationrate": {
-            "type": "number"
+            "type": "number",
+            "minumum": 0,
+            "maximum": 1
         },
         "sampler.random.adaptive.strength": {
-            "type": "number"
+            "type": "number",
+            "minumum": 0,
+            "maximum": 0.95
         },
         "film.filter.type": {
-            "type": "string"
+            "type": "string",
+            "enum": ["NONE", "BOX", "GAUSSIAN", "MITCHELL", "MITCHELL_SS", "BLACKMANHARRIS"]
         },
         "film.filter.width": {
-            "type": "number"
+            "type": "number",
+            "minumum": 0
         },
         "film.filter.xwidth": {
-            "type": "number"
+            "type": "number",
+            "minumum": 0
         },
         "film.filter.ywidth": {
-            "type": "number"
+            "type": "number",
+            "minumum": 0
         },
         "film.filter.gaussian.alpha": {
-            "type": "number"
+            "type": "number",
+            "minumum": 0
         },
         "film.filter.mitchell.b": {
-            "type": "number"
+            "type": "number",
+            "minumum": 0,
+            "maximum": 1
         },
         "film.filter.mitchell.c": {
-            "type": "number"
+            "type": "number",
+            "minumum": 0,
+            "maximum": 1
         },
         "film.filter.mitchellss.b": {
-            "type": "number"
+            "type": "number",
+            "minumum": 0,
+            "maximum": 1
         },
         "film.filter.mitchellss.c": {
-            "type": "number"
+            "type": "number",
+            "minumum": 0,
+            "maximum": 1
         },
         "lightstrategy.type": {
-            "type": "string"
+            "type": "string",
+            "enum": ["UNIFORM", "POWER", "LOG_POWER"]
         },
         "accelerator.type": {
-            "type": "string"
+            "type": "string",
+            "enum": ["AUTO", "BVH", "MBVH", "QBVH", "MQBVH", "EMBREE"]
         },
         "accelerator.instances.enable": {
             "type": "boolean"
@@ -274,102 +335,16 @@
         }
     },
     "definitions": {
-        "color_type": {
-            "type": "array",
-            "minItems": 3,
-            "maxItems": 3,
-            "items": {
-                "type": "number"
-            }
-        },
         "imagepipeline_sequence": {
+            "$id": "#imagepipeline_sequence",
             "type": "array",
             "minItems": 1,
             "items": {
-                "$ref": "#/definitions/imagepipeline_radiancescale"
-            }
-        },
-        "imagepipeline_plugin": {
-            "type": "object",
-            "properties": {
-                "type": {
-                    "type": "string"
-                },
-                "scale": {
-                    "type": "string"
-                },
-                "prescale": {
-                    "type": "number"
-                },
-                "postscale": {
-                    "type": "number"
-                },
-                "burn": {
-                    "type": "number"
-                },
-                "sensitivity": {
-                    "type": "number"
-                },
-                "exposure": {
-                    "type": "number"
-                },
-                "fstop": {
-                    "type": "number"
-                },
-                "value": {
-                    "type": "number"
-                },
-                "table.size": {
-                    "type": "integer"
-                },
-                "channel": {
-                    "type": "string"
-                },
-                "index": {
-                    "type": "integer"
-                },
-                "weight": {
-                    "type": "number"
-                },
-                "name": {
-                    "type": "string"
-                },
-                "file": {
-                    "type": "string"
-                },
-                "storage": {
-                    "type": "string"
-                },
-                "radius": {
-                    "type": "number"
-                },
-                "amount": {
-                    "type": "number"
-                },
-                "color": {
-                    "$ref": "#/definitions/color_type"
-                },
-                "startdistance": {
-                    "type": "number"
-                },
-                "enddistance": {
-                    "type": "number"
-                },
-                "excludebackgroung": {
-                    "type": "boolean"
-                },
-                "range": {
-                    "type": "number"
-                },
-                "steps": {
-                    "type": "integer"
-                },
-                "zerogridsize": {
-                    "type": "integer"
-                }
+                "$ref": "#imagepipeline_radiancescale"
             }
         },
         "imagepipeline_radiancescale": {
+            "$id": "#imagepipeline_radiancescale",            
             "type": "object",
             "properties": {
                 "globalscale": {
@@ -379,7 +354,7 @@
                     "type": "number"
                 },
                 "rgbscale": {
-                    "$ref": "#/definitions/color_type"
+                    "$ref": "types/color_type.json#/color_type"
                 },
                 "enabled": {
                     "type": "boolean"

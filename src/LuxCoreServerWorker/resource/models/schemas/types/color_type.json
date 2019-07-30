@@ -1,0 +1,11 @@
+{
+    "color_type": {
+        "id": "#color_type",
+        "type": "array",
+        "minItems": 3,
+        "maxItems": 3,
+        "items": {
+            "type": "number"
+        }
+    }
+}

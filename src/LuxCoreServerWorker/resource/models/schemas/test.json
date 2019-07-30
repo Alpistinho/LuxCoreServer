@@ -1,0 +1,11 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "#config_schema",
+    "type": "object",
+    "properties": {
+        "test": {"type":"number"},
+        "color": {
+            "$ref": "types/color_type.json#/color_type"
+        }
+    }
+}

@@ -1,0 +1,19 @@
+{
+    "tonemap_reinhard": {
+        "type": "object",
+        "properties": {
+            "type": {
+                "type": "string"
+            },
+            "prescale": {
+                "type": "number"
+            },
+            "postscale": {
+                "type": "number"
+            },
+            "burn": {
+                "type": "number"
+            }
+        }
+    }
+}
