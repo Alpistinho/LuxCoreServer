@@ -1,33 +1,26 @@
-from pathlib import Path
-import csv
 import json
 from collections import OrderedDict
+from pathlib import Path
 
+from jsonschema import Draft7Validator, RefResolver
 from flask_restplus import fields
+
 
 from ...server.instance import server
 
 api = server.api
-api.models
-config_post_model = api.model('Render configuration model',
- {'renderengine.type': fields.String,
- 'int': fields.Integer,
- 'listInts': fields.List(fields.Integer)})
-
-address = api.schema_model('Address', {
-    'properties': {
-        'road': {
-            'type': 'string'
-        },
-    },
-    'type': 'object'
-})
 
 basepath = Path(__file__).parent
-filepath = (basepath / "config_models_schema.json").resolve()
 
-with open(str(filepath),'r') as f:
+filepath = str((basepath / "schemas/config_model_schema.json").resolve())
+with open(filepath,'r') as f:
     schema = f.read()
-schema_json = json.loads(schema, object_pairs_hook=OrderedDict)
-config_post_model = address = api.schema_model('Config files', schema_json)
+    
+config_post_schema = json.loads(schema, object_pairs_hook=OrderedDict)
 
+config_schema_resolver = RefResolver(base_uri='file://{}'.format(filepath), referrer=config_post_schema)
+
+print('Resolver: ', config_schema_resolver.base_uri)
+
+Draft7Validator.check_schema(config_post_schema)
+config_schema_validator = Draft7Validator(config_post_schema, resolver=config_schema_resolver)
