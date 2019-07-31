@@ -16,6 +16,12 @@
             },
             "excludebackgroung": {
                 "type": "boolean"
+            },
+            "type": {
+                "type": "string",
+                "enum": [
+                    "MIST"
+                ]
             }
         }
     }

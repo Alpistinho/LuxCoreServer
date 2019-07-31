@@ -7,6 +7,12 @@
             },
             "weight": {
                 "type": "string"
+            },
+            "type": {
+                "type": "string",
+                "enum": [
+                    "BLOOM"
+                ]
             }
         }
     }

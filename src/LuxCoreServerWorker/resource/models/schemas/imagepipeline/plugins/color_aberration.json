@@ -4,6 +4,12 @@
         "properties": {
             "amount": {
                 "type": "number"
+            },
+            "type": {
+                "type": "string",
+                "enum": [
+                    "COLOR_ABERRATION"
+                ]
             }
         }
     }

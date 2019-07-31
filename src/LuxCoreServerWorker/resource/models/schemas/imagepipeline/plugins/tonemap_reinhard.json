@@ -13,6 +13,12 @@
             },
             "burn": {
                 "type": "number"
+            },
+            "type": {
+                "type": "string",
+                "enum": [
+                    "TONEMAP_REINHARD02"
+                ]
             }
         }
     }

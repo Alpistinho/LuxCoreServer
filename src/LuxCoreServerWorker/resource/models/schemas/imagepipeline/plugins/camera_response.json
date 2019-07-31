@@ -4,6 +4,12 @@
         "properties": {
             "name": {
                 "type": "string"
+            },
+            "type": {
+                "type": "string",
+                "enum": [
+                    "CAMERA_RESPONSE_FUNC"
+                ]
             }
         }
     }

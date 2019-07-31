@@ -13,6 +13,12 @@
             },
             "zerogridsize": {
                 "type": "integer"
+            },
+            "type": {
+                "type": "string",
+                "enum": [
+                    "CONTOUR_LINES"
+                ]
             }
         }
     }

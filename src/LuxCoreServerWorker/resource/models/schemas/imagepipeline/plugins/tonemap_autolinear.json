@@ -1,14 +1,11 @@
 {
-    "tonemap_linear": {
+    "tonemap_autolinear": {
         "type": "object",
         "properties": {
-            "scale": {
-                "type": "string"
-            },
             "type": {
                 "type": "string",
                 "enum": [
-                    "TONEMAP_LINEAR"
+                    "TONEMAP_AUTOLINEAR"
                 ]
             }
         }

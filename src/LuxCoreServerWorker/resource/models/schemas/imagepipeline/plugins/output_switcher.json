@@ -8,6 +8,12 @@
             "index": {
                 "type": "integer",
                 "minimum": 0
+            },
+            "type": {
+                "type": "string",
+                "enum": [
+                    "OUTPUT_SWITCHER"
+                ]
             }
         }
     }

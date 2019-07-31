@@ -4,6 +4,12 @@
         "properties": {
             "weight": {
                 "type": "number"
+            },
+            "type": {
+                "type": "string",
+                "enum": [
+                    "GAUSSIANFILTER_3x3"
+                ]
             }
         }
     }

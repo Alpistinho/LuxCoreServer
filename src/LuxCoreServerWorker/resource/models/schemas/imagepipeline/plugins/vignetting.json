@@ -4,6 +4,12 @@
         "properties": {
             "scale": {
                 "type": "number"
+            },
+            "type": {
+                "type": "string",
+                "enum": [
+                    "VIGNETTING"
+                ]
             }
         }
     }
