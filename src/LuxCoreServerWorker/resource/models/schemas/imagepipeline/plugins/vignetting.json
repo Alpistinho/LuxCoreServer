@@ -1,5 +1,5 @@
 {
-    "tonemap_linear": {
+    "vignetting": {
         "type": "object",
         "properties": {
             "scale": {
