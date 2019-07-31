@@ -1,0 +1,16 @@
+{
+    "tonemap_luxlinear": {
+        "type": "object",
+        "properties": {
+            "sensitivity": {
+                "type": "number"
+            },
+            "exposure": {
+                "type": "number"
+            },
+            "fstop": {
+                "type": "number"
+            }
+        }
+    }
+}

@@ -1,0 +1,14 @@
+{
+    "output_switcher": {
+        "type": "object",
+        "properties": {
+            "channel": {
+                "type": "string"
+            },
+            "index": {
+                "type": "integer",
+                "minimum": 0
+            }
+        }
+    }
+}

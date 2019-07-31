@@ -1,0 +1,16 @@
+{
+    "background_img": {
+        "type": "object",
+        "properties": {
+            "file": {
+                "type": "string"
+            },
+            "storage": {
+                "type": "string"
+            },
+            "gamma": {
+                "type": "number"
+            }
+        }
+    }
+}

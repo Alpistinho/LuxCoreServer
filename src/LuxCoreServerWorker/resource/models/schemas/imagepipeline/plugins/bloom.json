@@ -1,0 +1,13 @@
+{
+    "bloom": {
+        "type": "object",
+        "properties": {
+            "radius": {
+                "type": "string"
+            },
+            "weight": {
+                "type": "string"
+            }
+        }
+    }
+}

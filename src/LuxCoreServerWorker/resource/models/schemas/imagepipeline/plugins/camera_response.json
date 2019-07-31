@@ -1,0 +1,10 @@
+{
+    "camera_response": {
+        "type": "object",
+        "properties": {
+            "name": {
+                "type": "string"
+            }
+        }
+    }
+}

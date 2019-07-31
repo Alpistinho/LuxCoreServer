@@ -1,19 +1,22 @@
 {
     "imagepipeline_radiancescale": {
-        "$id": "#imagepipeline_radiancescale",            
-        "type": "object",
-        "properties": {
-            "globalscale": {
-                "type": "number"
-            },
-            "temperature": {
-                "type": "number"
-            },
-            "rgbscale": {
-                "$ref": "types/color_type.json#/color_type"
-            },
-            "enabled": {
-                "type": "boolean"
+        "$id": "#imagepipeline_radiancescale",
+        "type": "array",
+        "items": {
+            "type": "object",
+            "properties": {
+                "globalscale": {
+                    "type": "number"
+                },
+                "temperature": {
+                    "type": "number"
+                },
+                "rgbscale": {
+                    "$ref": "types/color_type.json#/color_type"
+                },
+                "enabled": {
+                    "type": "boolean"
+                }
             }
         }
     }

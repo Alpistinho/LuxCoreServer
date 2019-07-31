@@ -1,0 +1,14 @@
+{
+    "gamma_correction": {
+        "type": "object",
+        "properties": {
+            "value": {
+                "type": "number"
+            },
+            "table.size": {
+                "type": "integer",
+                "minimum": 0
+            }
+        }
+    }
+}

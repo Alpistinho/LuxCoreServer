@@ -1,0 +1,10 @@
+{
+    "tonemap_linear": {
+        "type": "object",
+        "properties": {
+            "scale": {
+                "type": "number"
+            }
+        }
+    }
+}

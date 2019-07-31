@@ -1,0 +1,10 @@
+{
+    "color_aberration": {
+        "type": "object",
+        "properties": {
+            "amount": {
+                "type": "number"
+            }
+        }
+    }
+}

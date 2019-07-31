@@ -25,7 +25,43 @@
             "parameters": {
                 "oneOf": [
                     {
+                        "$ref": "plugins/background_img.json#/background_img"
+                    },
+                    {
+                        "$ref": "plugins/bloom.json#/bloom"
+                    },
+                    {
+                        "$ref": "plugins/camera_response.json#/camera_response"
+                    },
+                    {
+                        "$ref": "plugins/color_aberration.json#/color_aberration"
+                    },
+                    {
+                        "$ref": "plugins/contour_lines.json#/contour_lines"
+                    },
+                    {
+                        "$ref": "plugins/gamma_correction.json#/gamma_correction"
+                    },
+                    {
+                        "$ref": "plugins/gaussian_filter.json#/gaussian_filter"
+                    },
+                    {
+                        "$ref": "plugins/mist.json#/mist"
+                    },
+                    {
+                        "$ref": "plugins/output_switcher.json#/output_switcher"
+                    },
+                    {
                         "$ref": "plugins/tonemap_linear.json#/tonemap_linear"
+                    },
+                    {
+                        "$ref": "plugins/tonemap_reinhard.json#/tonemap_reinhard"
+                    },
+                    {
+                        "$ref": "plugins/tonemap_luxlinear.json#/tonemap_luxlinear"
+                    },
+                    {
+                        "$ref": "plugins/vignetting.json#/vignetting"
                     }
                 ]
             }

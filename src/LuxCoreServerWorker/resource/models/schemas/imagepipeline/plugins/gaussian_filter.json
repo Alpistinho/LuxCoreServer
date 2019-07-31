@@ -1,0 +1,10 @@
+{
+    "gaussian_filter": {
+        "type": "object",
+        "properties": {
+            "weight": {
+                "type": "number"
+            }
+        }
+    }
+}
