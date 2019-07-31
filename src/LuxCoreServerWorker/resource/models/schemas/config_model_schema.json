@@ -323,42 +323,14 @@
             "type": "array",
             "minItems": 1,
             "items": {
-                "$ref": "#/definitions/imagepipeline_sequence"
+                "$ref": "imagepipeline/imagepipeline_sequence.json#/imagepipeline_sequence"
             }
         },
         "film.radiancegroup":  {
             "type": "array",
             "minItems": 1,
             "items": {
-                "$ref": "#/definitions/imagepipeline_sequence"
-            }
-        }
-    },
-    "definitions": {
-        "imagepipeline_sequence": {
-            "$id": "#imagepipeline_sequence",
-            "type": "array",
-            "minItems": 1,
-            "items": {
-                "$ref": "#imagepipeline_radiancescale"
-            }
-        },
-        "imagepipeline_radiancescale": {
-            "$id": "#imagepipeline_radiancescale",            
-            "type": "object",
-            "properties": {
-                "globalscale": {
-                    "type": "number"
-                },
-                "temperature": {
-                    "type": "number"
-                },
-                "rgbscale": {
-                    "$ref": "types/color_type.json#/color_type"
-                },
-                "enabled": {
-                    "type": "boolean"
-                }
+                "$ref": "radiancescale_sequence#/radiancescale_sequence"
             }
         }
     }

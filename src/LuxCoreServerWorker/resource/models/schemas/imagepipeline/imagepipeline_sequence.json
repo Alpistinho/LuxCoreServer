@@ -1,0 +1,10 @@
+{
+    "imagepipeline_sequence": {
+        "$id": "#imagepipeline_sequence",
+        "type": "array",
+        "minItems": 1,
+        "items": {
+            "$ref": "imagepipeline_plugin.json#imagepipeline_plugin"
+        }
+    }
+}
