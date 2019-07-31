@@ -43,8 +43,17 @@ class Worker_machine(object):
 		print(type(self.current_configuration))
 		for key in self.current_configuration:
 			try:
-				#print('key: ', key, self.current_configuration[key], type(self.current_configuration[key]))
-				self.props.Set(pyluxcore.Property(key, [self.current_configuration[key]]))
+				print('key: ', key, self.current_configuration[key], type(self.current_configuration[key]))
+				if key == 'film.imagepipeline':
+					for pipeline_num, pipeline in enumerate(self.current_configuration[key]):
+						for plugin_num, plugin in enumerate(pipeline):
+							for plugin_key in plugin:
+								pipeline_plugin_key = 'film.imagepipeline.{}.{}.{}'.format(pipeline_num, plugin_num, plugin_key)
+								print('plugin key: ', pipeline_plugin_key, plugin[plugin_key], type(plugin[plugin_key]))
+								self.props.Set(pyluxcore.Property(pipeline_plugin_key, [plugin[plugin_key]]))
+					continue
+				else:
+					self.props.Set(pyluxcore.Property(key, [self.current_configuration[key]]))
 			except RuntimeError as e:
 				print('Error: ', e, key, self.current_configuration[key])
 
