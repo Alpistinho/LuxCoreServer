@@ -3,7 +3,7 @@
         "type": "object",
         "properties": {
             "scale": {
-                "type": "string"
+                "type": "number"
             },
             "type": {
                 "type": "string",
