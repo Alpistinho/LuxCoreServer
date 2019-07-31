@@ -23,7 +23,7 @@
                 ]
             },
             "parameters": {
-                "oneOf": [
+                "anyOf": [
                     {
                         "$ref": "plugins/background_img.json#/background_img"
                     },
